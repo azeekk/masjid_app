@@ -39,6 +39,12 @@ class DonationsScreen extends StatelessWidget {
         stream: FirebaseFirestore.instance.collection('donations')
             .where('type', isEqualTo: type).orderBy('date', descending: true).snapshots(),
         builder: (ctx, snap) {
+            if (snap.hasError) {
+            return Center(child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Text('Error: ${snap.error}', textAlign: TextAlign.center),
+            ));
+          }
           if (!snap.hasData) return const Center(child: CircularProgressIndicator());
           double total = 0;
           for (var d in snap.data!.docs) { total += (d['amount'] ?? 0); }

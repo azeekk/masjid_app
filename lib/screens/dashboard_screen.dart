@@ -21,9 +21,7 @@ class DashboardScreen extends StatelessWidget {
         _tile(context, Icons.volunteer_activism, 'Donations', const DonationsScreen(type: 'general')),
         _tile(context, Icons.favorite, 'Nikah Donations', const DonationsScreen(type: 'nikah')),
         _tile(context, Icons.menu_book, 'Madrasa Students', const StudentsScreen()),
-        _tile(context, Icons.school, 'Teachers', const StaffScreen(role: 'teacher', title: 'Teachers')),
-        _tile(context, Icons.mosque, 'Imam', const StaffScreen(role: 'imam', title: 'Imam')),
-        _tile(context, Icons.mic, 'Khatheeb', const StaffScreen(role: 'khatheeb', title: 'Khatheeb')),
+        _tile(context, Icons.school, 'Staff', const StaffScreen(role: 'staff', title: 'Staff')),
       ]),
     );
   }
